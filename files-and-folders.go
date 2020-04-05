@@ -172,7 +172,7 @@ func ListFolderContent(folder string, ext string) ([]string, error) {
 			return err
 		}
 		if info.Mode().IsRegular() {
-			if !IsNullOrEmpty(ext) {
+			if len(strings.TrimSpace(ext)) > 0 {
 				if filepath.Ext(info.Name()) == ext {
 					fileList = append(fileList, path)
 				}
